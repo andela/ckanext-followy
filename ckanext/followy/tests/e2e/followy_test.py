@@ -41,11 +41,12 @@ class FollowyTestCase(unittest.TestCase):
         visibility != None
         next_page = self.browser.find_elements_by_class_name("btn-primary")[0]
         assert next_page != None
+        time.sleep(5)
         title_text = "".join( [random.choice(string.ascii_letters) for i in range(8)] )
         title.send_keys(title_text)
+        time.sleep(5)
         description_text = "".join( [random.choice(string.ascii_letters) for i in range(20)] )
         description.send_keys(description_text)
-        time.sleep(4)
         next_page.click()
         dataset_url = self.browser.find_element_by_name("url")
         assert dataset_url != None
