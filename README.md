@@ -89,6 +89,16 @@ searching first to see if there's already an [issue](https://github.com/CodeForA
 
 
 
+Running E2E test on Followy CKAN Extension
+---------------------------------------------
+End to End test is important as it ensures complete correctness & health of the application and also it increases confidence of the application.
+Running E2E on this extensions requires [selenim](http://www.seleniumhq.org/docs/03_webdriver.jsp#firefox-driver) and [geckodriver](https://github.com/mozilla/geckodriver/releases).
+selenium would be installed as soon as the requirements.txt file is executed. geckodriver should be explicitly added to your system PATH. When all is setup successfully, use the command bellow to run the test:
+```bash
+python2.7 ckanext/followy/tests/e2e/followy_test.py
+```
+
+
 Contributing to Followy CKAN Extension
 ---------------------------------------------
 
