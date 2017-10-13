@@ -12,8 +12,7 @@ class FollowyTestCase(unittest.TestCase):
         self.browser = webdriver.Firefox(executable_path=r'/usr/local/lib/geckodriver')
         self.addCleanup(self.browser.quit)
 
-
-    def test_create_dataset_and_follow(self):
+    def user_login(self):
         self.browser.get('http://localhost:5000')
         login = self.browser.find_element_by_link_text("Log in")
         login.click()
@@ -24,6 +23,10 @@ class FollowyTestCase(unittest.TestCase):
         password.send_keys("ghostmode")
         login_Btn.click()
         assert 'http://localhost:5000/dashboard' in self.browser.current_url
+
+
+    def test_create_dataset_and_follow(self):
+        self.user_login()
         datasets = self.browser.find_element_by_link_text("Datasets")
         datasets.click()
         assert 'http://localhost:5000/dataset' in self.browser.current_url
@@ -68,16 +71,7 @@ class FollowyTestCase(unittest.TestCase):
 
 
     def test_following_dataset(self):
-        self.browser.get('http://localhost:5000')
-        login = self.browser.find_element_by_link_text("Log in")
-        login.click()
-        username = self.browser.find_element_by_id("field-login")
-        password = self.browser.find_element_by_id("field-password")
-        login_Btn = self.browser.find_elements_by_class_name("btn-primary")[0]
-        username.send_keys("ghost")
-        password.send_keys("ghostmode")
-        login_Btn.click()
-        assert 'http://localhost:5000/dashboard' in self.browser.current_url
+        self.user_login()        
         follow = self.browser.find_element_by_link_text("Following")
         assert follow != None
         follow.click()
