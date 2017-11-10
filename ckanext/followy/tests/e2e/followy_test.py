@@ -13,7 +13,7 @@ class FollowyTestCase(unittest.TestCase):
         self.addCleanup(self.browser.quit)
 
     def user_login(self):
-        self.browser.get('http://localhost:5000')
+        self.browser.get('http://127.0.0.1:5000')
         login = self.browser.find_element_by_link_text("Log in")
         login.click()
         username = self.browser.find_element_by_id("field-login")
@@ -22,20 +22,20 @@ class FollowyTestCase(unittest.TestCase):
         username.send_keys("ghost")
         password.send_keys("ghostmode")
         login_Btn.click()
-        assert 'http://localhost:5000/dashboard' in self.browser.current_url
+        assert 'http://127.0.0.1:5000/dashboard' in self.browser.current_url
 
 
     def test_create_dataset_and_follow(self):
         self.user_login()
         datasets = self.browser.find_element_by_link_text("Datasets")
         datasets.click()
-        assert 'http://localhost:5000/dataset' in self.browser.current_url
+        assert 'http://127.0.0.1:5000/dataset' in self.browser.current_url
         add_dataset = self.browser.find_element_by_link_text("Add Dataset")
         search_dataset = self.browser.find_elements_by_class_name("search")
         assert add_dataset != None 
         assert search_dataset != None
         add_dataset.click()
-        assert 'http://localhost:5000/dataset/new' in self.browser.current_url
+        assert 'http://127.0.0.1:5000/dataset/new' in self.browser.current_url
         title = self.browser.find_element_by_id("field-title")
         assert title != None
         description = self.browser.find_element_by_id("field-notes")
