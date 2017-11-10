@@ -98,6 +98,10 @@ selenium would be installed as soon as the requirements.txt file is executed. ge
 python2.7 ckanext/followy/tests/e2e/followy_test.py
 ```
 
+Compatibility 
+--------------
+The ckanext-followy has been conprehensively tested with various vesions of ckan(2.6.3 and 2.7.0). All functions of this extension works perfectly on ckan. Test scripts(End to End test and unit test) have also been written to back up the compatibility of this extension on ckan.
+
 
 Contributing to Followy CKAN Extension
 ---------------------------------------------
