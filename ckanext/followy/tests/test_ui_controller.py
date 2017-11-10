@@ -47,5 +47,5 @@ class UIControllerTest(unittest.TestCase):
         # Test
         self.ctl_instance.dashboard_dataset_followee()
         controller.toolkit.get_action(action_name).assert_called_with(self.expected_context, data_dict)
-        controller.toolkit.render.assert_called_once_with('user/dashboard_datasets_followee.html',
+        controller.toolkit.render.assert_called_once_with('followy/dashboard_datasets_followee.html',
                                                           extra_vars={'followees': followee_list[::-1]})
